@@ -1,0 +1,18 @@
+- hosts: localhost
+  become: yes
+  
+  roles:
+    - role: gantsign.antigen
+      users:
+        - username: devuser
+          antigen_libraries:
+            - name: oh-my-zsh
+              env:
+                DISABLE_AUTO_UPDATE: '"true"' # Optional (this was hard-coded in the .zshrc of the `gantsign.oh-my-zsh` role)
+          antigen_theme:
+            name: bira
+          antigen_bundles:
+            - name: git
+            - name: zsh-autosuggestions
+              url: zsh-users/zsh-autosuggestions
+
